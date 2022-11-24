@@ -25,7 +25,7 @@ export const Messages = styled.div`
   
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: #9999ae;
+    background: #aaaabe;
   }
 `
 
