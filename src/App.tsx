@@ -40,8 +40,8 @@ const data = {
 }
 
 function App() {
-  const turbineId = 'NzI1NDc1MTM1'
-  /*const { loading, error, data } = useQuery(GET_TURBINE_AND_WIND_FARM, {
+  /*const turbineId = 'NzI1NDc1MTM1'
+  const { loading, error, data } = useQuery(GET_TURBINE_AND_WIND_FARM, {
     variables: { id: turbineId },
   })
 

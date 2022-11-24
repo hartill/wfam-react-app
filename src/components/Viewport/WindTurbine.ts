@@ -7,7 +7,6 @@ import {
   Mesh,
   MeshBasicMaterial,
   Object3D,
-  PointLight,
   Scene,
   SphereGeometry,
   Vector3,
@@ -39,7 +38,7 @@ const wtObjectNames = [
   'met_mast',
 ]
 
-const temperatures = {
+/*const temperatures = {
   generatorBearingTemperature: 10,
   generatorPhase1Temperature: 5,
   generatorBearing2Temperature: 12,
@@ -58,7 +57,7 @@ const temperatures = {
   controllerVCPChokeCoilTemperature: 26,
   vcsCoolingWaterTemperature: 10,
   busbarTemperature: 10,
-}
+}*/
 
 class WindTurbine {
   rotor: Group

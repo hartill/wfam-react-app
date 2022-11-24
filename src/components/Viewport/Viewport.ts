@@ -5,25 +5,11 @@ import {
   Vector2,
   WebGLRenderer,
   Scene,
-  Mesh,
-  EdgesGeometry,
-  LineSegments,
-  LineBasicMaterial,
-  WebGLRenderTarget,
-  LinearFilter,
-  RGBAFormat,
 } from 'three'
 import { debounce } from '../../helpers'
 import Controls from './Controls'
 import WindTurbine from './WindTurbine'
 import { addLighting, createEnvironment } from './helpers'
-import { OutlineEffect } from 'three/examples/jsm/effects/OutlineEffect'
-import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass'
-import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer'
-import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass'
-import { OutlinePass } from 'three/examples/jsm/postprocessing/OutlinePass'
-import { FXAAShader } from 'three/examples/jsm/shaders/FXAAShader'
-import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass'
 
 class ViewPort {
   viewportElement: HTMLElement
@@ -92,7 +78,7 @@ class ViewPort {
       }
     )
 
-    this.renderer.domElement.addEventListener(
+    /*this.renderer.domElement.addEventListener(
       'mousemove',
       (event: MouseEvent) => {
         const mousePosition = new Vector2()
@@ -100,7 +86,7 @@ class ViewPort {
         mousePosition.y = -(event.clientY / this.height) * 2 + 1
         this.handleHover(mousePosition)
       }
-    )
+    )*/
 
     window.addEventListener(
       'resize',
@@ -128,14 +114,14 @@ class ViewPort {
     this.scene.add(object)
   }
 
-  private handleHover(eventLocation: Vector2) {
+  /*private handleHover(eventLocation: Vector2) {
     this.raycaster.setFromCamera(eventLocation, this.camera)
     const intersects = this.raycaster.intersectObjects(
       this.selectableObjects,
       true
     )
 
-    /*const currentlySelectedObject = this.scene.getObjectByName('selected')
+    const currentlySelectedObject = this.scene.getObjectByName('selected')
 
     if (currentlySelectedObject) {
       this.scene.remove(currentlySelectedObject)
@@ -159,8 +145,8 @@ class ViewPort {
           this.scene.add(object)
         }
       })
-    }*/
-  }
+    }
+  }*/
 
   public setSelectedView(selectedView: string) {
     if (selectedView === 'view1') {
