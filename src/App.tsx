@@ -1,26 +1,50 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import { ThemeProvider } from '@emotion/react'
+import theme from './config/theme'
+import AppHeader from './components/AppHeader'
+import { useQuery, gql } from '@apollo/client'
+import SystemDashboard from './components/SystemDashboard'
+
+const GET_TURBINE_AND_WIND_FARM = gql`
+  query GetData($id: ID!) {
+    turbine(id: $id) {
+      id
+      name
+      model
+      ratedPower
+      lat
+      long
+    }
+    windFarm {
+      name
+      timeZone
+    }
+  }
+`
 
 function App() {
+  const turbineId = 'NzI1NDc1MTM1'
+  const { loading, error, data } = useQuery(GET_TURBINE_AND_WIND_FARM, {
+    variables: { id: turbineId },
+  })
+
+  if (loading) return <p>Loading...</p>
+  if (error) return <p>Error : {error.message}</p>
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <ThemeProvider theme={theme}>
+      <div id="app">
+        <AppHeader
+          turbineName={data.turbine.name}
+          windFarmName={data.windFarm.name}
+          lat={data.turbine.lat}
+          long={data.turbine.long}
+          localTime={data.windFarm.timeZone}
+        />
+        <SystemDashboard turbine={data.turbine} />
+      </div>
+    </ThemeProvider>
+  )
 }
 
-export default App;
+export default App
