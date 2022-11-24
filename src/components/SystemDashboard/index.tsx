@@ -11,11 +11,11 @@ const turbineStatus = {
 
 const data = {
   turbineTelemetry: {
-    nacelleDirectionDeg: 67 + Math.floor(Math.random() * 5),
-    rotorSpeed: 3.5 + Math.random() * 3,
+    nacelleDirectionDeg: 38 + Math.floor(Math.random() * 5),
+    rotorSpeed: 16 + Math.random() * 3,
     bladePitchAngle: 0 + Math.random() * 2,
-    powerOutput: Math.round(1000 + Math.random() * 100),
-    windSpeed: Math.round(11 + Math.random() * 5),
+    powerOutput: Math.round(1100 + Math.random() * 100),
+    windSpeed: Math.round(12 + Math.random() * 5),
     windDirectionDeg: 38 + Math.random() * 5,
   },
   messages: [

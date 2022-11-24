@@ -7,11 +7,14 @@ import {
   ControlBar,
   ControlButton,
   ControlButtonText,
+  Loading,
+  LoadingSpinner,
   ViewportContainer,
   ViewportElement,
 } from './styles'
 import Viewport from './Viewport'
 import { Video } from 'react-feather'
+import theme from '../../config/theme'
 
 enum SelectedView {
   VIEW1 = 'view1',
@@ -94,16 +97,19 @@ function ViewportWrapper({ objectPaths }: IViewportWrapper) {
           <ControlButton
             onClick={() => handleSelectedViewChanged(SelectedView.VIEW1)}
           >
-            <Video width={21} />
+            <Video width={21} color={theme.colors.midBlueGrey}/>
             <ControlButtonText>1</ControlButtonText>
           </ControlButton>
           <ControlButton
             onClick={() => handleSelectedViewChanged(SelectedView.VIEW2)}
           >
-            <Video width={21} />
+            <Video width={21} color={theme.colors.midBlueGrey}/>
             <ControlButtonText>2</ControlButtonText>
           </ControlButton>
         </ControlBar>
+        <Loading>
+          <LoadingSpinner />
+        </Loading>
       </ViewportContainer>
     )
   }

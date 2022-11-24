@@ -130,3 +130,7 @@ export function loadMaterials() {
     wireframe: wireframeMaterial,
   }
 }
+
+export function degrees_to_radians(degrees: number) {
+  return degrees * (Math.PI / 180)
+}

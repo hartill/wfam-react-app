@@ -8,7 +8,7 @@ import {
   Object3D,
   Scene,
 } from 'three'
-import { loadMaterials } from './helpers'
+import { degrees_to_radians, loadMaterials } from './helpers'
 
 const rotorGroupObjectNames = [
   'main_bearing',
@@ -68,7 +68,7 @@ class WindTurbine {
     this.rotor = new Group()
     this.nacelleStructure = null
     this.nacelleMaterial = null
-    this.rotorRPM = 60
+    this.rotorRPM = 16
     this.materials = loadMaterials()
 
     rotorGroupObjectNames.forEach((objectName) => {
@@ -121,7 +121,8 @@ class WindTurbine {
   }
 
   public update() {
-    this.rotor.rotateZ(this.rotorRPM / (65 * 30))
+    const anglePerMinute = degrees_to_radians(360 * this.rotorRPM)
+    this.rotor.rotateZ(anglePerMinute / 60 / 60)
   }
 }
 
