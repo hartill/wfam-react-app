@@ -55,7 +55,6 @@ class ViewPort {
       0.01,
       1000
     )
-    this.camera.layers.enable(1)
     this.controls = new Controls(this.camera, this.renderer.domElement)
 
     this.renderer.domElement.addEventListener(
@@ -152,23 +151,12 @@ class ViewPort {
     if (selectedView === 'view1') {
       this.controls.setTargetPosition(0, 62, 0)
       this.camera.position.set(15, 72, -25)
-      this.setNacelleOpen(false)
+      this.windTurbine.setNacelleVisible(true)
     } else {
       this.controls.setTargetPosition(0, 65.5, 1.6)
       this.camera.position.set(7, 65.5, 1.6)
-      this.setNacelleOpen(true)
+      this.windTurbine.setNacelleVisible(false)
     }
-  }
-
-  private setNacelleOpen(open: boolean) {
-    const nacelleStructure: Object3D = this.objects.find(
-      (obj) => obj.name === 'nacelle_structure'
-    )!
-    nacelleStructure.visible = !open
-    const nacelleStructureOpen: Object3D = this.objects.find(
-      (obj) => obj.name === 'nacelle_structure_open'
-    )!
-    nacelleStructureOpen.visible = open
   }
 
   private handleLookAt(eventLocation: Vector2) {

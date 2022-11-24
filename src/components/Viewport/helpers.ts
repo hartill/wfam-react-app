@@ -35,7 +35,7 @@ export default async function loadThreeObject(
             resolve(obj)
           },
           (xhr: ProgressEvent) => {
-            console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
+            //console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
           },
           (error: any) => {
             console.error(error.message)
@@ -107,8 +107,12 @@ export function loadMaterials() {
   const whiteMaterial = new MeshPhongMaterial()
   whiteMaterial.color.setRGB(0.8, 0.8, 0.8)
   whiteMaterial.side = DoubleSide
-  whiteMaterial.transparent = true
-  whiteMaterial.opacity = 0.5
+
+  const transparentWhiteMaterial = new MeshPhongMaterial()
+  transparentWhiteMaterial.color.setRGB(0.8, 0.8, 0.8)
+  transparentWhiteMaterial.side = DoubleSide
+  transparentWhiteMaterial.transparent = true
+  transparentWhiteMaterial.opacity = 0.15
 
   const yellowMaterial = new MeshPhongMaterial()
   yellowMaterial.color.setRGB(0.9, 0.7, 0.4)
@@ -121,6 +125,7 @@ export function loadMaterials() {
 
   return {
     white: whiteMaterial,
+    transparentWhite: transparentWhiteMaterial,
     yellow: yellowMaterial,
     wireframe: wireframeMaterial,
   }
