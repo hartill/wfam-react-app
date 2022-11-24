@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
 
 export const ViewportContainer = styled.div`
+position: relative;
   flex: 1 1 70%;
   overflow: hidden;
   display: flex;
@@ -14,10 +15,14 @@ export const ViewportElement = styled.div`
 `
 
 export const ControlBar = styled.div`
-  flex-basis: 33px;
+  position: absolute;
+  bottom: 6px;
+  left: 6px;
+  padding: 6px 18px;
   display: flex;
   align-items: stretch;
-  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 18px;
   background: ${(props) => props.theme.colors.panelBackground};
   display: flex;
   flex-flow: row nowrap;
@@ -32,10 +37,14 @@ export const ControlButton = styled.div`
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  margin: 0 3px;
+  margin-left: 18px;
+
+  &:nth-of-type(1) {
+    margin-left: 0;
+  }
 
   &:hover {
-    background: rgba(0,0,0,0.06);
+    opacity: 0.8;
   }
 `
 
@@ -50,5 +59,5 @@ export const ControlButtonText = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-right: 4px;
+  padding-right: 5px;
 `
