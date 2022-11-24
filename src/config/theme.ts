@@ -4,7 +4,7 @@ const theme: Theme = {
   colors: {
     blue: '#217FF1',
     darkGrey: '#40444d',
-    midDarkGrey: '#70788a',
+    midDarkGrey: '#70788e',
     red: '#E55F5E',
     green: '#41A97C',
     orange: '#E38E28',

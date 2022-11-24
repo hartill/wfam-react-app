@@ -1,0 +1,38 @@
+[
+  {
+    "id": "iiod9",
+    "type": "information",
+    "content": "External power ref.:2000kW",
+    "dateTime": "2022-06-13T10:56:06+00:00"
+  },
+  {
+    "id": "hdhhd",
+    "type": "information",
+    "content": "Yawcontr. from:30010 to:30011",
+    "dateTime": "2022-06-13T10:45:06+00:00"
+  },
+  {
+    "id": "fffewree",
+    "type": "information",
+    "content": "Gen. ext. vent. 1, temp:101°C",
+    "dateTime": "2022-06-13T10:42:06+00:00"
+  },
+  {
+    "id": "jjklhshkl",
+    "type": "information",
+    "content": "Generator 1 in",
+    "dateTime": "2022-06-13T10:23:06+00:00"
+  },
+  {
+    "id": "hkdhhkjs",
+    "type": "warning",
+    "content": "Hot HV trafo 270°C",
+    "dateTime": "2022-06-13T10:12:06+00:00"
+  },
+  {
+    "id": "837y849y",
+    "type": "warning",
+    "content": "Feedback=0, Gearoil cool S410",
+    "dateTime": "2022-06-13T10:11:06+00:00"
+  }
+]

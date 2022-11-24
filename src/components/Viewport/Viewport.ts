@@ -96,7 +96,6 @@ class ViewPort {
     this.setSelectedView('view1')
 
     this.startAnimationLoop()
-    console.log('start loop')
   }
 
   public handleResize() {

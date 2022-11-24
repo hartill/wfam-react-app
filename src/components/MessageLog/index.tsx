@@ -19,9 +19,9 @@ export enum IMessageType {
 
 interface IMessage {
   id: string
-  type: IMessageType
+  type: IMessageType | string
   content: string
-  dateTime: Date
+  dateTime: string
 }
 
 interface IMessageLog {
@@ -30,10 +30,6 @@ interface IMessageLog {
 
 function MessageLog({ messages }: IMessageLog) {
   const theme = useTheme()
-  
-  if (!messages.length) {
-    return null
-  }
 
   return (
     <MessageLogContainer>

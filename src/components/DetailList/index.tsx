@@ -40,7 +40,7 @@ function DetailList({
         </DescriptionRow>
         <DescriptionRow key={'ratedPower'}>
           <DescriptionColumn>{'Rated Power'}</DescriptionColumn>
-          <DescriptionColumn>{ratedPower}</DescriptionColumn>
+          <DescriptionColumn>{ratedPower} W</DescriptionColumn>
         </DescriptionRow>
         <DescriptionRow key={'status'}>
           <DescriptionColumn>{'Status'}</DescriptionColumn>
