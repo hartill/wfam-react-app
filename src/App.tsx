@@ -2,10 +2,10 @@ import './App.css'
 import { ThemeProvider } from '@emotion/react'
 import theme from './config/theme'
 import AppHeader from './components/AppHeader'
-import { useQuery, gql } from '@apollo/client'
+//import { useQuery, gql } from '@apollo/client'
 import SystemDashboard from './components/SystemDashboard'
 
-const GET_TURBINE_AND_WIND_FARM = gql`
+/*const GET_TURBINE_AND_WIND_FARM = gql`
   query GetData($id: ID!) {
     turbine(id: $id) {
       id
@@ -20,16 +20,33 @@ const GET_TURBINE_AND_WIND_FARM = gql`
       timeZone
     }
   }
-`
+`*/
+
+const data = {
+  turbine: {
+    id: '193093',
+    name: 'Turbine A',
+    windFarmName: 'Wind Farm A',
+    model: 'T256',
+    ratedPower: 2000,
+    lat: 48.775845,
+    long: 9.182932,
+  },
+  windFarm: {
+    id: '897897983',
+    name: 'Wind Farm A',
+    timeZone: 'Europe/Berlin'
+  },
+}
 
 function App() {
   const turbineId = 'NzI1NDc1MTM1'
-  const { loading, error, data } = useQuery(GET_TURBINE_AND_WIND_FARM, {
+  /*const { loading, error, data } = useQuery(GET_TURBINE_AND_WIND_FARM, {
     variables: { id: turbineId },
   })
 
   if (loading) return <p>Loading...</p>
-  if (error) return <p>Error : {error.message}</p>
+  if (error) return <p>Error : {error.message}</p>*/
 
   return (
     <ThemeProvider theme={theme}>

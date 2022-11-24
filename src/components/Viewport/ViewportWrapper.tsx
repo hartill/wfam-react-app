@@ -10,7 +10,7 @@ import {
   ViewportContainer,
   ViewportElement,
 } from './styles'
-import Viewport from './Viewport_eg'
+import Viewport from './Viewport'
 import { Video } from 'react-feather'
 
 enum SelectedView {
