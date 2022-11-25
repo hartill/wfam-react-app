@@ -79,18 +79,24 @@ export const ControlButton = styled.div`
   &:hover {
     opacity: 0.8;
   }
+
+  &.active {
+    svg {
+      stroke: ${(props) => props.theme.colors.blue};
+    }
+    color: ${(props) => props.theme.colors.blue};
+  }
 `
 
 export const ControlButtonText = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
+  right: 6px;
   bottom: 0;
   font-weight: bold;
   font-size: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-right: 5px;
 `

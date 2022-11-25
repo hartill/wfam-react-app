@@ -96,14 +96,16 @@ function ViewportWrapper({ objectPaths }: IViewportWrapper) {
         <ControlBar>
           <ControlButton
             onClick={() => handleSelectedViewChanged(SelectedView.VIEW1)}
+            className={selectedView === SelectedView.VIEW1 ? 'active' : ''}
           >
-            <Video width={21} color={theme.colors.midBlueGrey}/>
+            <Video width={21} color={theme.colors.midBlueGrey} />
             <ControlButtonText>1</ControlButtonText>
           </ControlButton>
           <ControlButton
             onClick={() => handleSelectedViewChanged(SelectedView.VIEW2)}
+            className={selectedView === SelectedView.VIEW2 ? 'active' : ''}
           >
-            <Video width={21} color={theme.colors.midBlueGrey}/>
+            <Video width={21} color={theme.colors.midBlueGrey} />
             <ControlButtonText>2</ControlButtonText>
           </ControlButton>
         </ControlBar>
