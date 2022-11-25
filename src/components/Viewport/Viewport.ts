@@ -2,7 +2,6 @@ import {
   Object3D,
   PerspectiveCamera,
   Raycaster,
-  Vector2,
   WebGLRenderer,
   Scene,
 } from 'three'
@@ -20,7 +19,6 @@ class ViewPort {
   controls: Controls
   raycaster: Raycaster
   objects: Object3D[]
-  selectableObjects: Object3D[]
   renderer: WebGLRenderer
   windTurbine: WindTurbine
 
@@ -29,12 +27,6 @@ class ViewPort {
     this.width = this.viewportElement.offsetWidth
     this.height = this.viewportElement.offsetHeight
     this.objects = objects
-    this.selectableObjects = objects.filter((object) => {
-      return (
-        object.name !== 'nacelle_structure' &&
-        object.name !== 'nacelle_structure_open'
-      )
-    })
     this.scene = new Scene()
 
     createEnvironment(this.scene)
@@ -57,45 +49,14 @@ class ViewPort {
     )
     this.controls = new Controls(this.camera, this.renderer.domElement)
 
-    this.renderer.domElement.addEventListener(
-      'mousedown',
-      (event: MouseEvent) => {
-        const mousePosition = new Vector2()
-        mousePosition.x = (event.clientX / this.width) * 2 - 1
-        mousePosition.y = -(event.clientY / this.height) * 2 + 1
-        this.handleLookAt(mousePosition)
-      }
-    )
-
-    this.renderer.domElement.addEventListener(
-      'touchstart',
-      (event: TouchEvent) => {
-        const touchPosition = new Vector2()
-        touchPosition.x = (event.touches[0].clientX / this.width) * 2 - 1
-        touchPosition.y = -(event.touches[0].clientY / this.height) * 2 + 1
-        this.handleLookAt(touchPosition)
-      }
-    )
-
-    /*this.renderer.domElement.addEventListener(
-      'mousemove',
-      (event: MouseEvent) => {
-        const mousePosition = new Vector2()
-        mousePosition.x = (event.clientX / this.width) * 2 - 1
-        mousePosition.y = -(event.clientY / this.height) * 2 + 1
-        this.handleHover(mousePosition)
-      }
-    )*/
-
     window.addEventListener(
       'resize',
       debounce(this.handleResize, 100, this),
       false
     )
 
-    this.setSelectedView('view1')
-
     this.startAnimationLoop()
+    this.setSelectedView('view1')
   }
 
   public handleResize() {
@@ -113,40 +74,6 @@ class ViewPort {
     this.scene.add(object)
   }
 
-  /*private handleHover(eventLocation: Vector2) {
-    this.raycaster.setFromCamera(eventLocation, this.camera)
-    const intersects = this.raycaster.intersectObjects(
-      this.selectableObjects,
-      true
-    )
-
-    const currentlySelectedObject = this.scene.getObjectByName('selected')
-
-    if (currentlySelectedObject) {
-      this.scene.remove(currentlySelectedObject)
-    }
-
-    if (intersects.length > 0) {
-      intersects[0].object.traverse((child) => {
-        if (child instanceof Mesh) {
-          const thresholdAngle = 15
-          const lineGeometry = new EdgesGeometry(child.geometry, thresholdAngle)
-
-          const line = new LineSegments(
-            lineGeometry,
-            new LineBasicMaterial({ color: 0xffffff, linewidth: 4 })
-          )
-
-          const object = new Object3D()
-          object.name = 'selected'
-          object.add(line)
-
-          this.scene.add(object)
-        }
-      })
-    }
-  }*/
-
   public setSelectedView(selectedView: string) {
     if (selectedView === 'view1') {
       this.controls.setTargetPosition(0, 62, 0)
@@ -159,29 +86,11 @@ class ViewPort {
     }
   }
 
-  private handleLookAt(eventLocation: Vector2) {
-    this.raycaster.setFromCamera(eventLocation, this.camera)
-    const intersects = this.raycaster.intersectObjects(this.objects, true)
-
-    if (intersects.length > 0) {
-      this.controls.setTargetPosition(
-        intersects[0].point.x,
-        intersects[0].point.y,
-        intersects[0].point.z
-      )
-
-      const distanceFromCamera = this.camera.position.distanceTo(
-        intersects[0].point
-      )
-      this.controls.setSpeed(distanceFromCamera)
-    }
-  }
-
   private startAnimationLoop() {
     const animate = () => {
       requestAnimationFrame(animate)
 
-      this.controls.update()
+      this.controls.controls.update()
       this.windTurbine.update()
       this.renderer.render(this.scene, this.camera)
     }

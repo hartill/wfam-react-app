@@ -175,11 +175,6 @@ class ViewPort {
         intersects[0].point.y,
         intersects[0].point.z
       )
-
-      const distanceFromCamera = this.camera.position.distanceTo(
-        intersects[0].point
-      )
-      this.controls.setSpeed(distanceFromCamera)
     }
   }
 
