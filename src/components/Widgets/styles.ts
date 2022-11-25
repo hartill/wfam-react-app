@@ -5,6 +5,10 @@ export const WidgetsContainer = styled.div`
   border-top: 1px solid rgba(0, 0, 0, 0.12);
   display: flex;
   align-items: stretch;
+  
+  @media screen and (max-width: 600px) {
+    flex: 1;
+  }
 `
 
 export const TelemetryWidgets = styled.div`

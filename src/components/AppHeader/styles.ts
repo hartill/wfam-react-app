@@ -38,6 +38,10 @@ export const LocationDetails = styled.div`
   display: flex;
   align-items: stretch;
   justify-content: flex-end;
+
+  @media screen and (max-width: ${(props) => props.theme.screenSize.small}) {
+    display: none;
+  }
 `
 
 export const LocationIcon = styled.div`

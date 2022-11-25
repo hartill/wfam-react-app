@@ -9,12 +9,15 @@ declare module '@emotion/react' {
       red: string
       green: string
       orange: string
-      panelBackground: string;
-      panelBackgroundDarker: string;
+      panelBackground: string
+      panelBackgroundDarker: string
       midBlueGrey: string
-    },
+    }
     spacing: {
       rowPadding: string
+    }
+    screenSize: {
+      small: string
     }
   }
 }

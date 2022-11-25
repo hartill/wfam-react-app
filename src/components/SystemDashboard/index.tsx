@@ -3,6 +3,7 @@ import MessageLog from '../MessageLog'
 import ViewportWrapper from '../Viewport/ViewportWrapper'
 import Widgets from '../Widgets'
 import messages from './messages.json'
+import { ViewportAndSidePanel, SidePanel } from './styles'
 //import { useQuery, gql } from '@apollo/client'
 
 const turbineStatus = {
@@ -62,9 +63,9 @@ function SystemDashboard({ turbine }: any) {
 
   return (
     <>
-      <div className="main">
+      <ViewportAndSidePanel>
         <ViewportWrapper objectPaths={objectPaths} />
-        <div className="side-panel">
+        <SidePanel>
           <DetailList
             turbineModel={turbine.model}
             ratedPower={turbine.ratedPower}
@@ -72,8 +73,8 @@ function SystemDashboard({ turbine }: any) {
             sessionDuration={turbineStatus.sessionDuration}
           />
           <MessageLog messages={messages} />
-        </div>
-      </div>
+        </SidePanel>
+      </ViewportAndSidePanel>
       <Widgets telemetry={data.turbineTelemetry} />
     </>
   )

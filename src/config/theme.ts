@@ -15,6 +15,9 @@ const theme: Theme = {
   spacing: {
     rowPadding: '0.7rem 1.1rem',
   },
+  screenSize: {
+    small: '600px',
+  }
 }
 
 export default theme

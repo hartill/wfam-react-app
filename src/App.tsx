@@ -1,9 +1,9 @@
-import './App.css'
 import { ThemeProvider } from '@emotion/react'
 import theme from './config/theme'
 import AppHeader from './components/AppHeader'
 //import { useQuery, gql } from '@apollo/client'
 import SystemDashboard from './components/SystemDashboard'
+import { AppElement } from './styles'
 
 /*const GET_TURBINE_AND_WIND_FARM = gql`
   query GetData($id: ID!) {
@@ -50,7 +50,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <div id="app">
+      <AppElement>
         <AppHeader
           turbineName={data.turbine.name}
           windFarmName={data.windFarm.name}
@@ -59,7 +59,7 @@ function App() {
           localTime={data.windFarm.timeZone}
         />
         <SystemDashboard turbine={data.turbine} />
-      </div>
+      </AppElement>
     </ThemeProvider>
   )
 }

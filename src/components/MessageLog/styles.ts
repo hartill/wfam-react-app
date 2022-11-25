@@ -7,6 +7,10 @@ export const MessageLogContainer = styled.div`
   flex-flow: column nowrap;
   align-items: stretch;
   overflow: hidden;
+
+  @media screen and (max-width: 600px) {
+    display: none;
+  }
 `
 
 export const Messages = styled.div`
