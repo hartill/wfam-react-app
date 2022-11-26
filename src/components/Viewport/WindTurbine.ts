@@ -27,11 +27,9 @@ const wtObjectNames = [
   'coolant',
   'gearbox',
   'generator',
-  'winch',
   'beams',
   'platform',
   'nacelle_structure',
-  'nacelle_structure_open',
   'met_mast',
 ]
 
@@ -102,8 +100,6 @@ class WindTurbine {
             this.nacelleMaterial = child.material
           }
         })
-      } else if (objectName === 'nacelle_structure_open') {
-        this.scene.remove(object)
       } else if (
         objectName === 'tower' ||
         objectName === 'entry_hatch' ||
