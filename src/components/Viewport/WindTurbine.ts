@@ -1,8 +1,5 @@
 import {
-  EdgesGeometry,
   Group,
-  LineBasicMaterial,
-  LineSegments,
   Mesh,
   MeshPhongMaterial,
   Object3D,
