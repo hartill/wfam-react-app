@@ -1,5 +1,8 @@
 import {
+  EdgesGeometry,
   Group,
+  LineBasicMaterial,
+  LineSegments,
   Mesh,
   MeshPhongMaterial,
   Object3D,
@@ -69,6 +72,19 @@ class WindTurbine {
     rotorGroupObjectNames.forEach((objectName) => {
       const object: Object3D = objects.find((obj) => obj.name === objectName)!
       this.rotor.add(object)
+
+      if (objectName === 'main_bearing') {
+        object.traverse((child) => {
+          if (child instanceof Mesh) {
+            const edges = new EdgesGeometry(child.geometry, 8)
+            const line = new LineSegments(
+              edges,
+              new LineBasicMaterial({ color: 0x333333 })
+            )
+            this.rotor.add(line)
+          }
+        })
+      }
     })
     this.scene.add(this.rotor)
     this.rotor.position.set(-0, 65.94, -3.4)
@@ -84,8 +100,30 @@ class WindTurbine {
             this.nacelleMaterial = child.material
           }
         })
+      } else if (
+        objectName === 'tower' ||
+        objectName === 'entry_hatch' ||
+        objectName === 'met_mast' ||
+        objectName === 'ladder'
+      ) {
+        // do nothing
+      } else {
+        object.traverse((child) => {
+          if (child instanceof Mesh) {
+            this.addLine(child)
+          }
+        })
       }
     })
+  }
+
+  private addLine(child: Mesh) {
+    const edges = new EdgesGeometry(child.geometry, 8)
+    const line = new LineSegments(
+      edges,
+      new LineBasicMaterial({ color: 0x333333 })
+    )
+    this.scene.add(line)
   }
 
   public setNacelleVisible(show: boolean) {
