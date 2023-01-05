@@ -12,5 +12,5 @@ export const AppElement = styled.div`
   flex-flow: column nowrap;
   align-items: stretch;
   overflow: hidden;
-  background: #dedcec;
+  background: ${(props) => props.theme.colors.panelBackground};;
 `
