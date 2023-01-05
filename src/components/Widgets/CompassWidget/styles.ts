@@ -2,25 +2,11 @@ import styled from '@emotion/styled'
 
 export const CompassWidet = styled.div`
   position: relative;
-  width: 120px;
-  height: 120px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   box-sizing: border-box;
-  border: 15px solid #C8C3D6;
-`
-
-export const CompassTick = styled.div`
-  position: absolute;
-  top: -10%;
-  left: 50%;
-  height: 120%;
-  width: 2px;
-  margin-left: -1px;
-  background: rgba(0,0,0,0.12);
-
-  &: nth-of-type(2) {
-    transform: rotate(90deg);
-  }
+  border: 18px solid #C8C3D6;
 `
 
 export const CompassInner = styled.div`
@@ -43,8 +29,9 @@ export const CompassInner = styled.div`
 
 export const CompassLabel = styled.div`
   margin-bottom: 0.2rem;
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 500;
+  color: ${(props) => props.theme.colors.midBlueGrey};
 `
 
 export const CompassValue = styled.div`
@@ -81,12 +68,12 @@ export const CompassTicks = styled.div`
   margin-left: -28px;
   margin-right: -28px;
   margin-bottom: -28px;
-  font-size: 10px;
+  font-size: 11px;
   color: ${(props) => props.theme.colors.midBlueGrey};
 
   span:nth-of-type(1) {
     position: absolute;
-    top: 0;
+    top: -4px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -96,14 +83,14 @@ export const CompassTicks = styled.div`
     position: absolute;
     top: 0;
     right: 0;
-    margin-right: 2px;
+    margin-right: -1px;
     height: 100%;
     display: flex;
     align-items: center;
   }
   span:nth-of-type(3) {
     position: absolute;
-    bottom: 0;
+    bottom: -4px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -111,7 +98,7 @@ export const CompassTicks = styled.div`
   span:nth-of-type(4) {
     position: absolute;
     top: 0;
-    left: -2px;
+    left: -5px;
     height: 100%;
     display: flex;
     align-items: center;

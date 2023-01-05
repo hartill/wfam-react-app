@@ -22,7 +22,7 @@ interface IDialWidget {
 }
 
 function DialWidget({ label, value, min, max, unit, icon }: IDialWidget) {
-  value = Math.round(value * 100) / 100
+  value = Math.round(value * 10) / 10
   const theme = useTheme()
   let percent = ((value - min) * 100) / (max - min)
   percent = Math.round(50 - scale(percent, 0, 100, 0, 50))
@@ -30,8 +30,6 @@ function DialWidget({ label, value, min, max, unit, icon }: IDialWidget) {
 
   return (
     <DialWidetContainer title={label}>
-      <IconContainer>{icon}</IconContainer>
-      <WidgetLabel>{label}</WidgetLabel>
       <SvgContainer>
         <SvgMask>
           <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
@@ -58,15 +56,21 @@ function DialWidget({ label, value, min, max, unit, icon }: IDialWidget) {
             />
           </svg>
         </SvgMask>
-        <WidgetValue>
-          {value.toString()} <span>{unit}</span>
-        </WidgetValue>
+        <IconContainer>{icon}</IconContainer>
         <LabelsContainer>
           <span>{min}</span>
           <span>{max / 2}</span>
           <span>{max}</span>
         </LabelsContainer>
       </SvgContainer>
+      <WidgetLabel>{label}</WidgetLabel>
+      <WidgetValue>
+        {value.toString()}
+        <span className={unit === '°' ? 'degrees' : ''}>
+          {unit !== '°' ? ' ' : ''}
+          {unit}
+        </span>
+      </WidgetValue>
     </DialWidetContainer>
   )
 }

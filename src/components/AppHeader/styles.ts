@@ -2,12 +2,12 @@ import styled from '@emotion/styled'
 
 export const Header = styled.div`
   padding: 0 1.5rem;
-  flex: 0 0 38px;
+  flex: 0 0 43px;
   background: ${(props) => props.theme.colors.darkGrey};
   color: #ffffff;
   display: flex;
   align-items: stretch;
-  border-bottom: 1px solid rgba(0,0,0,0.12);
+  border-bottom: 2px solid rgba(0,0,0,0.10);
   padding-top: 2px;
   font-weight: 500;
 `
@@ -23,7 +23,7 @@ export const BreadcrumbItem = styled.div`
   align-items: center;
 
   &.faded {
-    opacity: 0.5;
+    opacity: 0.7;
   }
 `
 

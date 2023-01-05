@@ -2,11 +2,11 @@ import styled from '@emotion/styled'
 
 export const DegreesWidet = styled.div`
   position: relative;
-  width: 120px;
-  height: 120px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   box-sizing: border-box;
-  border: 15px solid #c8c3d6;
+  border: 18px solid #c8c3d6;
   margin-bottom: 1rem;
 `
 
@@ -49,8 +49,9 @@ export const DegreesInner = styled.div`
 
 export const Label = styled.div`
   margin-bottom: 0.2rem;
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 500;
+  color: ${(props) => props.theme.colors.midBlueGrey};
 `
 
 export const Value = styled.div`
@@ -87,12 +88,12 @@ export const DegreeTicks = styled.div`
   margin-left: -28px;
   margin-right: -28px;
   margin-bottom: -28px;
-  font-size: 10px;
+  font-size: 11px;
   color: ${(props) => props.theme.colors.midBlueGrey};
 
   span:nth-of-type(1) {
     position: absolute;
-    top: 0;
+    top: -4px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -101,14 +102,14 @@ export const DegreeTicks = styled.div`
   span:nth-of-type(2) {
     position: absolute;
     top: 0;
-    right: -3px;
+    right: -7px;
     height: 100%;
     display: flex;
     align-items: center;
   }
   span:nth-of-type(3) {
     position: absolute;
-    bottom: 0;
+    bottom: -4px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -116,7 +117,7 @@ export const DegreeTicks = styled.div`
   span:nth-of-type(4) {
     position: absolute;
     top: 0;
-    left: -8px;
+    left: -13px;
     height: 100%;
     display: flex;
     align-items: center;

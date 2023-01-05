@@ -2,12 +2,12 @@ import { TurbineIconRotator, WindIconRotator, WindIconHolder } from './styles'
 import { useTheme } from '@emotion/react'
 import {
   CompassInner,
-  CompassTick,
   CompassTicks,
   CompassWidet,
 } from '../CompassWidget/styles'
 import { ReactComponent as TurbineIcon } from '../../../icons/wt-birdseye.svg'
 import { ReactComponent as WindIcon } from '../../../icons/wind-arrows.svg'
+import { renderDegreeMarkings } from '../DegreesWidget'
 
 interface ITurbineBearingWidget {
   nacelleDirectionDeg: number
@@ -24,8 +24,7 @@ function TurbineBearingWidget({
 
   return (
     <CompassWidet title={title}>
-      <CompassTick />
-      <CompassTick />
+      {renderDegreeMarkings()}
       <CompassInner>
         <TurbineIconRotator
           style={{ transform: `rotate(${nacelleDirectionDeg}deg)` }}

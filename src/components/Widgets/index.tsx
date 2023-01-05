@@ -40,7 +40,7 @@ function Widgets({ telemetry }: IWidgets) {
               min={0}
               max={40}
               unit="m/s"
-              icon={<Wind color={theme.colors.midBlueGrey} width={21} />}
+              icon={<Wind color={theme.colors.midBlueGrey} width={25} />}
             />
           </TelemetryWidgetSpacing>
           <TelemetryWidgetSpacing>
@@ -50,7 +50,7 @@ function Widgets({ telemetry }: IWidgets) {
               min={0}
               max={30}
               unit="rpm"
-              icon={<RotorIcon color={theme.colors.midBlueGrey} width={23} />}
+              icon={<RotorIcon fill={theme.colors.midBlueGrey} width={28} />}
             />
           </TelemetryWidgetSpacing>
           <TelemetryWidgetSpacing>
@@ -64,7 +64,7 @@ function Widgets({ telemetry }: IWidgets) {
                 <RotateCw
                   color={theme.colors.midBlueGrey}
                   strokeWidth={3}
-                  width={19}
+                  width={21}
                 />
               }
             />
@@ -76,7 +76,7 @@ function Widgets({ telemetry }: IWidgets) {
               min={0}
               max={2000}
               unit="W"
-              icon={<Zap color={theme.colors.midBlueGrey} width={21} />}
+              icon={<Zap color={theme.colors.midBlueGrey} width={25} />}
             />
           </TelemetryWidgetSpacing>
         </TelemetryWidgetRow>

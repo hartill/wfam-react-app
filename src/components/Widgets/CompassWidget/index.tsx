@@ -1,7 +1,7 @@
+import { renderDegreeMarkings } from '../DegreesWidget'
 import {
   CompassWidet,
   CompassInner,
-  CompassTick,
   CompassLabel,
   CompassValue,
   CompassNeedleHolder,
@@ -16,10 +16,10 @@ interface ICompassWidget {
 
 function CompassWidget({ label, degrees }: ICompassWidget) {
   degrees = Math.round(degrees * 100) / 100
+
   return (
     <CompassWidet title={label}>
-      <CompassTick />
-      <CompassTick />
+      {renderDegreeMarkings()}
       <CompassInner>
         <CompassLabel>{label}</CompassLabel>
         <CompassValue>{degrees}°</CompassValue>

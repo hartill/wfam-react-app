@@ -14,22 +14,23 @@ interface IDegreesWidget {
   degrees: number
 }
 
+export function renderDegreeMarkings() {
+  const degreeMarkingsMarkup = []
+  for (let degrees = 0; degrees < 180; degrees += 15) {
+    const className = degrees % 45 === 0 ? 'major-interval' : 'minor-interval'
+    degreeMarkingsMarkup.push(
+      <DegreeMark
+        key={degrees}
+        style={{ transform: `rotate(${degrees}deg)` }}
+        className={className}
+      />
+    )
+  }
+  return degreeMarkingsMarkup
+}
+
 function DegreesWidget({ label, degrees }: IDegreesWidget) {
   degrees = Math.round(degrees * 100) / 100
-  function renderDegreeMarkings() {
-    const degreeMarkingsMarkup = []
-    for (let degrees = 0; degrees < 180; degrees += 15) {
-      const className = degrees % 45 === 0 ? 'major-interval' : 'minor-interval'
-      degreeMarkingsMarkup.push(
-        <DegreeMark
-          key={degrees}
-          style={{ transform: `rotate(${degrees}deg)` }}
-          className={className}
-        />
-      )
-    }
-    return degreeMarkingsMarkup
-  }
 
   return (
     <DegreesWidet title={label}>

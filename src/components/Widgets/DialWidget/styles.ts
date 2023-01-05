@@ -10,13 +10,10 @@ export const DialWidetContainer = styled.div`
 `
 
 export const SvgContainer = styled.div`
-  margin-top: 2rem;
+  margin-top: 1.2rem;
   position: relative;
-  //width: 100%;
-  //height: 0px;
-  //padding-bottom: 50%;
-  width: 120px;
-  height: 60px;
+  width: 140px;
+  height: 70px;
 `
 
 export const SvgMask = styled.div`
@@ -26,34 +23,36 @@ export const SvgMask = styled.div`
   overflow: hidden;
 `
 
-export const WidgetLabel = styled.div`
-  margin-top: 0.6rem;
-  font-size: 1rem;
-  font-weight: 500;
-  text-align: center;
-  color: ${(props) => props.theme.colors.midBlueGrey};
-`
-
 export const WidgetValue = styled.div`
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  margin-top: 6px;
   font-weight: 600;
   font-size: 1.3rem;
   text-align: center;
 
   span {
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 500;
+  }
+
+  .degrees {
+    font-size: inherit;
   }
 `
 
-export const IconContainer = styled.div`
-  position: relative;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
+export const WidgetLabel = styled.div`
+  margin-top: 5px;
+  font-size: 11px;
+  font-weight: 500;
+  text-align: center;
+  color: ${(props) => props.theme.colors.midBlueGrey};
+`
+
+export const IconContainer = styled.span`
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 2px;
+  text-align: center;
 `
 
 export const LabelsContainer = styled.div`
@@ -61,7 +60,8 @@ export const LabelsContainer = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
-  font-size: 10px;
+  font-size: 11px;
+  font-weight: 500;
 
   span {
     position: absolute;
@@ -71,19 +71,19 @@ export const LabelsContainer = styled.div`
     left: -11px;
     bottom: -2px;
     text-align: right;
-    padding-right: 4px;
+    padding-right: 5px;
   }
 
   span: nth-of-type(2) {
     top: 0;
     width: 100%;
     text-align: center;
-    margin-top: -13px;
+    margin-top: -14px;
   }
 
   span: nth-of-type(3) {
     left: 100%;
     bottom: -2px;
-    padding-left: 4px;
+    padding-left: 5px;
   }
 `
