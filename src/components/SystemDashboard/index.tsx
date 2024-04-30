@@ -4,7 +4,6 @@ import ViewportWrapper from '../Viewport/ViewportWrapper'
 import Widgets from '../Widgets'
 import messages from './messages.json'
 import { ViewportAndSidePanel, SidePanel } from './styles'
-//import { useQuery, gql } from '@apollo/client'
 
 const turbineStatus = {
   status: 'Active',
@@ -33,34 +32,7 @@ const objectPaths = [
   },
 ]
 
-/*const GET_TURBINE_LIVE_DATA = gql`
-  query GetTurbineLiveData($id: ID!) {
-    turbineTelemetry(id: $id) {
-      nacelleDirectionDeg
-      rotorSpeed
-      bladePitchAngle
-      powerOutput
-      windSpeed
-      windDirectionDeg
-    }
-    messages(id: $id) {
-      id
-      type
-      content
-      dateTime
-    }
-  }
-`*/
-
 function SystemDashboard({ turbine }: any) {
-  /*const { loading, error, data } = useQuery(GET_TURBINE_LIVE_DATA, {
-    variables: { id: turbine.id },
-    pollInterval: 10000,
-  })
-
-  if (loading) return <p>Loading...</p>
-  if (error) return <p>Error : {error.message}</p>*/
-
   return (
     <>
       <ViewportAndSidePanel>
